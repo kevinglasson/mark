@@ -136,6 +136,12 @@ func templates(api *confluence.API) (*template.Template, error) {
 			`</ac:structured-macro>`,
 		),
 
+		`ac:link`: text(
+			`<ac:link>`,
+			/**/ `<ri:page ri:content-title="{{ .Page }}"/>`,
+			`</ac:link>`,
+		),
+
 		// TODO(seletskiy): more templates here
 	} {
 		templates, err = templates.New(name).Parse(body)
